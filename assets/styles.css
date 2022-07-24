@@ -1,3 +1,138 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --white: white;
+    --black: black;
+    --red: rgb(174, 68, 68);
+    --blue: rgb(111, 111, 198);
+    --light-blue: rgb(194, 194, 243);
+    --green: rgb(75, 117, 75);
+    --light-green: rgb(155, 214, 155);
+    --grey: rgb(118, 114, 114);
+    --dark-grey: rgb(74, 72, 72);
+}
+
 body {
-    background-color: aqua;
+    font-family: sans-serif;
+    background-color: var(--blue);
+}
+
+p {
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+img {
+    width: 100%
+}
+
+html {
+    font-size: 10px;
+}
+
+.container {
+    margin: 0 auto;
+    max-width: 850px;
+    padding: 0 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.quiz-box {
+    margin: 0 auto;
+    background-color: var(--white);
+    padding: 7rem;
+    border: 3px solid var(--blue);
+    width: 600px;
+    border-radius: 5px;
+}
+
+.quiz-box h1 {
+    background-color: var(--green);
+    text-align: center;
+    font-size: 3rem;
+    padding: 1rem 0;
+    color: var(--white);
+    margin-bottom: 2rem;
+    border-radius: 4px;
+    width: 100%;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header #progress {
+    color: var(--dark-grey);
+    font-size: 2rem;
+    font-weight: 650;
+}
+
+.header #count-down {
+    background-color: var(--red);
+    font-size: 2rem;
+    font-weight: 650;
+    padding: 5px;
+    color: var(--white);
+    margin: 1px;
+    border-radius: 4px;
+}
+
+.quiz-box #question {
+    color: var(--red);
+    font-size: 2rem;
+    font-weight: 550;
+    padding: 5px 0;
+    border: 1px solid var(--dark-grey);
+    border-width: 1px 0;
+}
+
+.buttons {
+    margin: 1.7rem 0 4rem 0;
+}
+
+.btn {
+    background-color: var(--light-blue);
+    text-align: left;
+    margin: 7px 0;
+    padding: 1rem;
+    outline: none;
+    width: 100%;
+    color: var(--dark-grey);
+    font-size: 2rem;
+    border: 1px solid var(--green);
+    border-radius: 5px;
+}
+
+.btn:hover {
+    cursor: pointer;
+    background-color: var(--green);
+    color: var(--white);
+}
+
+.btn:active {
+    background-color: var(--light-green);
+    color: var(--dark-grey);
+}
+
+.quiz-repeat {
+    text-decoration: none;
+    font-size: 1.8rem;
+    color: var(--white);
+    font-weight: 550;
+}
+
+#score {
+    text-align: center;
+    font-size: 2rem;
+    color: var(--dark-grey);
+    margin-bottom: 4rem;
 }
