@@ -124,10 +124,23 @@ html {
 }
 
 .quiz-repeat {
+    text-align: center;
+    margin: 0 auto;
+}
+
+.quiz-repeat a {
     text-decoration: none;
     font-size: 1.8rem;
     color: var(--white);
     font-weight: 550;
+    background-color: var(--green);
+    padding: 1rem;
+    transition: all /3s;
+    border-radius: 5px;
+}
+
+.quiz-repeat a:hover {
+    background-color: var(--green);
 }
 
 #score {
