@@ -96,38 +96,44 @@ let questions = [
         ),
     new Question(
         "Which is the appropriate HTML tag used for the largest heading?", 
-        ["Head", "h1", "h6", "Heading", "none",], "Heading"
+        ["head", "h1", "h6", "heading", "none",], "heading"
         ),
     new Question(
         "In CSS, which property is used to set the spacing in between lines of text?", 
-        ["letter-spacing", "line-height", "line-spacing", "spacing", "none"], "padding"
+        ["letter-spacing", "line-height", "line-spacing", "spacing", "none"], "line-height"
         ),
     new Question(
-            "What property is used to create space between the element’s border and inner content?", 
-            ["border", "padding", "spacing", "margin", "none"], "padding"
+            "Which is the appropriate HTML tag for inserting a line break?", 
+            ["brbr", "br", "break", "lb", "none"], "br"
         ),
     new Question(
-        "What property is used to create space between the element’s border and inner content?", 
-        ["border", "padding", "spacing", "margin", "none"], "padding"
+        "In CSS, what is the correct option to select all the tags on a page?", 
+        ["p { }", "#p { }", "<p> { }", ".p { }", "none"], "p { }"
         ),
     new Question(
-        "What property is used to create space between the element’s border and inner content?", 
-        ["border", "padding", "spacing", "margin", "none"], "padding"
+        "In JS, which of the following will return the type of the arguments passed to a function?", 
+        ["using getType function", "using typeof operator", "using typeof argument", "all of the above", "none"], "using typeof operator"
         ),
     new Question(
-        "What property is used to create space between the element’s border and inner content?", 
-        ["border", "padding", "spacing", "margin", "none"], "padding"
+        "Which of the following function of String object returns the capitalized string while respecting the current locale?", 
+        ["substring()", "toString()", "toUpperCase()", "toLocaleUpperCase()", "none"], "toLocaleUpperCase()"
         ),
     new Question(
-            "What property is used to create space between the element’s border and inner content?", 
-            ["border", "padding", "spacing", "margin", "none"], "padding"
+        "What is the function of Array object that runs through each element of the array?", 
+        ["concat()", "forEach()", "every()", "filter()", "none"], "forEach()"
         ),
     new Question(
-        "What property is used to create space between the element’s border and inner content?", 
-        ["border", "padding", "spacing", "margin", "none"], "padding"
+        "Which of the following method of Boolean object returns a string depending upon the value of the object?", 
+        ["toSource()", "valueOf()", "toString()", "stringValue", "none"], "toString()"
         ),
     new Question(
-        "What property is used to create space between the element’s border and inner content?", 
-        ["border", "padding", "spacing", "margin", "none"], "padding"
+        "What is the function of Array object that adds and/or removes elements from an array?", 
+        ["unshift()", "splice()", "sort()", "toSource()", "none"], "splice()"
         ),
 ]
+
+let quiz = new quiz(questions);
+
+// Displaying the questions
+
+
