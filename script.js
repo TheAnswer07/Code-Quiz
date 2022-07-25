@@ -7,20 +7,20 @@ class Quiz {
         this.questionIndex = 0;
     }
     getQuestionIndex() {
-        return this.question[this.questionIndex];
+        return this.questions[this.questionIndex];
     }
 
     guess(answer) {
-        if (this.getQuestionIndex().isRightAnswer(answer)) {
+        if (this.getQuestionIndex().isCorrectAnswer(answer)) {
             this.score++;
         }
         this.questionIndex++;
     }
 
-    isFinished() {
-        return this.getQuestionIndex === this.question.length;
+    isEnded() {
+        return this.getQuestionIndex === this.questions.length;
     }
-}
+};
 
 class Question {
     constructor(text, choices, answer) {
@@ -29,7 +29,7 @@ class Question {
         this.answer = answer;
     }
 
-    isRightAnswer(choice) {
+    isCorrecttAnswer(choice) {
         return this.answer === choice;
     }
 }
@@ -37,7 +37,7 @@ class Question {
 // Displaying the question
 
 function displayQuestion() {
-    if (quiz.isFinished()) {
+    if (quiz.isEnded()) {
         showScores();
     } else {
         // this will show the question
@@ -54,7 +54,9 @@ function displayQuestion() {
 
         showProgress();
     }
-}
+};
+
+// This is the guess function
 
 function guess(id, guess) {
     let button = document.getElementById(id);
@@ -62,30 +64,30 @@ function guess(id, guess) {
         quiz.guess(guess);
         displayQuestion();
     }
-}
+};
 
 // This function shows the quiz progress
 
 function showProgress() {
-    let currentQuestionNbr = quiz.questionIndex + 1;
+    let currentQuestionNumber = quiz.questionIndex + 1;
     let progressElement = document.getElementById("progress");
-    progressElement.innerHTML = `Question ${currentQuestionNbr} of ${quiz.question.length}`;
-}
+    progressElement.innerHTML = `Question ${currentQuestionNumber} of ${quiz.questions.length}`;
+};
 
 // This function shows the quiz score
 
 function showScores() {
-    let quizEndHtml =
+    let quizEndHTML =
     `
-        <h1> Completed </h1>
-        <h2> You scored ${quiz.score} out of ${quiz.question.length}</h2>
+        <h1> Quiz Completed </h1>
+        <h2 id="score"> You scored ${quiz.score} out of ${quiz.questions.length}</h2>
         <div class="quiz-repeat">
             <a href="index.html"> Try Quiz Again </a>
         </div>
     `;
     let quizElement = document.getElementById("quiz");
-    quizElement.innerHTML = quizEndHtml;
-}
+    quizElement.innerHTML = quizEndHTML;
+};
 
 // Quiz questions' creation
 
@@ -130,10 +132,12 @@ let questions = [
         "What is the function of Array object that adds and/or removes elements from an array?", 
         ["unshift()", "splice()", "sort()", "toSource()", "none"], "splice()"
         ),
-]
+];
 
-let quiz = new quiz(questions);
+let quiz = new Quiz(questions);
 
 // Displaying the questions
+
+displayQuestion();
 
 
