@@ -11,6 +11,7 @@ class Quiz {
     }
 
     guess(answer) {
+        console.log(this.getQuestionIndex());
         if (this.getQuestionIndex().isCorrectAnswer(answer)) {
             this.score++;
         }
@@ -29,14 +30,14 @@ class Question {
         this.answer = answer;
     }
 
-    isCorrecttAnswer(choice) {
+    isCorrectAnswer(choice) {
         return this.answer === choice;
     }
-}
+};
 
 // Displaying the question
 
-function displayQuestion() {
+function displayQuestion () {
     if (quiz.isEnded()) {
         showScores();
     } else {
@@ -140,4 +141,28 @@ let quiz = new Quiz(questions);
 
 displayQuestion();
 
+// Adding the countdown
 
+quizTime = 60;
+
+let countdown = document.getElementById("count-down");
+
+function startCountdown() {
+    let quizTimer = setInterval(function() {
+        if (quizTimer <= 0) {
+            clearInterval(quizTimer);
+        } else {
+            quizTime--;
+            countdown.innerHTML = `TIME: ${quizTime}`;
+        }
+    }, 1000)
+};
+
+startButton = document.getElementById("start");
+
+startButton.addEventListener('click', event => {
+    console.log('clicked');
+    startCountdown(); 
+    startButton.disabled = true;
+    startButton.style.backgroundColor = "grey";
+});
