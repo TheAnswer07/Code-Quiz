@@ -11,7 +11,6 @@ class Quiz {
     }
 
     guess(answer) {
-        console.log(this.getQuestionIndex());
         if (this.getQuestionIndex().isCorrectAnswer(answer)) {
             this.score++;
         }
@@ -19,7 +18,7 @@ class Quiz {
     }
 
     isEnded() {
-        return this.getQuestionIndex === this.questions.length;
+        return this.questionIndex === this.questions.length;
     }
 };
 
@@ -37,7 +36,7 @@ class Question {
 
 // Displaying the question
 
-function displayQuestion () {
+function displayQuestion() {
     if (quiz.isEnded()) {
         showScores();
     } else {
@@ -47,12 +46,18 @@ function displayQuestion () {
 
         // this will show the different options
         let choices = quiz.getQuestionIndex().choices;
+        let buttonContainers = document.querySelector('.buttons');
+        buttonContainers.innerHTML = "";
+
         for (let i = 0; i < choices.length; i++) {
-            let choiceElement = document.getElementById("choice" + i);
-            choiceElement.innerHTML = choices[i];
+            let choice = document.createElement('button');
+            choice.className = "btn";
+            choice.id = `btn${i}`;
+            choice.innerHTML = `${i+1}. <span id="choice${i}">${choices[i]}</span>`
+            buttonContainers.appendChild(choice);
             guess("btn" + i, choices[i]);
         }
-
+        
         showProgress();
     }
 };
@@ -139,7 +144,7 @@ let quiz = new Quiz(questions);
 
 // Displaying the questions
 
-displayQuestion();
+
 
 // Adding the countdown
 
@@ -149,8 +154,10 @@ let countdown = document.getElementById("count-down");
 
 function startCountdown() {
     let quizTimer = setInterval(function() {
-        if (quizTimer <= 0) {
+        if (quizTime <= 0) {
+            console.log("running");
             clearInterval(quizTimer);
+            showScores();
         } else {
             quizTime--;
             countdown.innerHTML = `TIME: ${quizTime}`;
@@ -161,8 +168,8 @@ function startCountdown() {
 startButton = document.getElementById("start");
 
 startButton.addEventListener('click', event => {
-    console.log('clicked');
     startCountdown(); 
     startButton.disabled = true;
+    displayQuestion();
     startButton.style.backgroundColor = "grey";
 });
