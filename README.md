@@ -24,13 +24,13 @@ SO THAT I can gauge my progress compared to my peers
 Thanks to my friend Victor for helping me with this project.
 
 ### Features
-10 questions
-100 potential answers
-10 correct answers
-A timer (1:00)
-A start button
-A quiz final score
-A try quiz again option
+* 10 questions
+* 100 potential answers
+* 10 correct answers
+* A timer (1:00)
+* A start button
+* A quiz final score
+* A try quiz again option
 
 ### Contribution
 You can contribute to this project by accessing my GitHub page.
